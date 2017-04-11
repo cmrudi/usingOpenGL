@@ -146,7 +146,7 @@ void display(){
   glEnd();
   
   //Badan
-  glColor3f(0,1,0);
+  glColor3f(0.1,0.9,0.1);
   glBegin(GL_POLYGON);
     // badan
     glVertex2f(172,124);
@@ -166,7 +166,7 @@ void display(){
   glEnd();
   
   //Leher
-  glColor3f(0,1,0);
+  glColor3f(0.1,0.9,0.1);
   glBegin(GL_POLYGON);
     glVertex2f(145,235);
     glVertex2f(94,220);
@@ -178,7 +178,7 @@ void display(){
 	glVertex2f(130,178);
   glEnd();
 
-  glColor3f(0.5, 0.5, 0.5);
+  glColor3f(0.5,0.5,0);
   glBegin(GL_POLYGON);
     //ekor 
     glVertex2f(217,123);
@@ -201,7 +201,7 @@ void display(){
     glVertex2f(319,56);
   glEnd();
 
-  glColor3f(0,0,1);
+  glColor3f(0.1,0.8,0.1);
   glBegin(GL_POLYGON);
     // kaki pertama
     glVertex2f(74,131);
@@ -219,15 +219,15 @@ void display(){
     glVertex2f(111,78);
   glEnd();
 
-  glColor3f(0,0,1);
+  glColor3f(0.1,0.8,0.1);
   glBegin(GL_POLYGON);
     // kaki kedua
     glVertex2f(129,142);
     glVertex2f(108,106);
     glVertex2f(121,77);
     glVertex2f(164,57);
-    glVertex2f(164,99);
-    glVertex2f(173,122);
+    glVertex2f(165,98);
+    glVertex2f(172,124);
   glEnd();
 	
   glBegin(GL_POLYGON);
@@ -237,7 +237,7 @@ void display(){
     glVertex2f(164,57);
   glEnd();
 
-  glColor3f(0,0,1);
+  glColor3f(0.1,0.8,0.1);
   glBegin(GL_POLYGON);
     // kaki ketiga
     glVertex2f(236,19);
@@ -456,10 +456,15 @@ void display(){
 
   glColor3f(1,0,0);
   glBegin(GL_POLYGON);
-  glVertex2f(59,346);
   glVertex2f(73,375);
   glVertex2f(135,395);
-  glVertex2f(103,362);
+  glVertex2f(104,361);
+  glVertex2f(96,360);
+  glVertex2f(87,357);
+  glVertex2f(80,352);
+  glVertex2f(73,347);
+  glVertex2f(64,342);
+  glVertex2f(59,338);
   glEnd();
 
   glColor3f(1,0,0);
