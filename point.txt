@@ -1,0 +1,15 @@
+
+glColor3f(0,0,0);
+glBegin(GL_POLYGON);
+glVertex2f(84,224);
+glVertex2f(84,229);
+glVertex2f(85,234);
+glVertex2f(86,236);
+glVertex2f(88,234);
+glVertex2f(93,231);
+glVertex2f(99,226);
+glVertex2f(100,228);
+glVertex2f(102,234);
+glVertex2f(103,235);
+glEnd();
+
