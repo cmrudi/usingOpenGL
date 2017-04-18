@@ -3,6 +3,8 @@
 #include <math.h>
 #include <iostream>
 
+#define PI 3.14159265
+
 using namespace std;
 
 int counter = 0;
@@ -242,6 +244,33 @@ void display(){
 ////////////////////////////////END OF RAINBOW
 
 ////////////////////////////////DRAWING MOUNTAIN
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.9,0.1);
+		glVertex2f(-1,-0.25);
+		glVertex2f(-0.9,-0.2);
+		glVertex2f(-0.8,-0.2);
+		glVertex2f(-0.7,-0.2);
+		glVertex2f(-0.6,-0.25);
+		glVertex2f(-0.5,-0.35);
+		glVertex2f(-0.4,-0.45);
+		glVertex2f(-0.3,-0.45);
+		glVertex2f(-0.2,-0.50);
+		glVertex2f(-0.1,-0.55);
+		glVertex2f(0,-1);
+		glVertex2f(-1,-1);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.9,0.1);
+		glVertex2f(0.5,-0.75);
+		glVertex2f(0.6,-0.65);
+		glVertex2f(0.7,-0.55);
+		glVertex2f(0.8,-0.45);
+		glVertex2f(0.9,-0.35);
+		glVertex2f(1,-0.30);
+		glVertex2f(1,-1);
+	glEnd();
+
 
 glBegin(GL_POLYGON);
    glColor3f(1.0f, 1.0f, 0.0f);
@@ -258,7 +287,7 @@ glBegin(GL_POLYGON);
 
 
 	glBegin(GL_POLYGON);            // These vertices form a closed polygon
-		glColor3f(0.0f, 1.0f, 0.0f); // Yellow
+		glColor3f(0.0f, 1.0f, 0.0f); // Green
 		glVertex2f(-1, -1);
 		glVertex2f(-0.9,-0.9);
 		glVertex2f(-0.8,-0.85);
@@ -283,11 +312,35 @@ glBegin(GL_POLYGON);
 	glEnd();
 
 ////////////////////////////////END OF DRAWING MOUNTAIN
+////////////////////////////////DRAWING SUN
+	int slices = 50;
+    float radius = 0.15;
+    float incr = (float) (2 * PI / slices);
+    float posX = 0.5;
+    float posY = 0.5;
 
+	glBegin(GL_TRIANGLE_FAN);
 
+		  glColor3f(1,0.7,0);//inner color
+		  glVertex2f(0.0f+posX, 0.0f+posY);
 
+		  glColor3f(1,1,0);//outer color
 
+		  for(int i = 0; i < slices; i++)
+		  {
+				float angle = incr * i;
 
+				float x = (float) cos(angle) * radius;
+				float y = (float) sin(angle) * radius;
+
+				glVertex2f(x + posX, y + posY);
+		  }
+
+		  glVertex2f(radius+ posX, 0.0f + posY);
+
+	glEnd();
+
+/////////////////////////////////END OF DRAWING SUN
  
     
 	glFlush();
