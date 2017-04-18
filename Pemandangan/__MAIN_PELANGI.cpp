@@ -299,9 +299,29 @@ void display(){
 	glEnd();
 
 ////////////////////////////////END OF DRAWING MOUNTAIN
+
+	float x = 0.5;
+	float y = 0.5;
+
+	glColor3f(1.0,0.5,0.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(-0.17+x, 0.17+y);
+		glVertex2f(0.17+x, 0.17+y);
+		glVertex2f(0.17+x, -0.17+y);
+		glVertex2f(-0.17+x, -0.17+y);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+		glVertex2f(0+x, 0.25+y);
+		glVertex2f(-0.25+x, 0+y);
+		glVertex2f(0+x, -0.25+y);
+		glVertex2f(0.25+x, 0+y);
+	glEnd();
+
+
 ////////////////////////////////DRAWING SUN
 	int slices = 50;
-    float radius = 0.15;
+    float radius = 0.18;
     float incr = (float) (2 * PI / slices);
     float posX = 0.5;
     float posY = 0.5;
@@ -328,8 +348,8 @@ void display(){
 	glEnd();
 
 /////////////////////////////////END OF DRAWING SUN
- 
-    
+
+
 	glFlush();
 	glutSwapBuffers();
 }
