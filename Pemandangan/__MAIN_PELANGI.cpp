@@ -3,6 +3,8 @@
 #include <math.h>
 #include <iostream>
 
+#define PI 3.14159265
+
 using namespace std;
 
 int counter = 0;
@@ -193,8 +195,35 @@ void display(){
 	glEnd();
 
 ////////////////////////////////END OF DRAWING MOUNTAIN
+////////////////////////////////DRAWING SUN
+	int slices = 50;
+    float radius = 0.15;
+    float incr = (float) (2 * PI / slices);
+    float posX = 0.5;
+    float posY = 0.5;
 
+	glBegin(GL_TRIANGLE_FAN);
 
+		  glColor3f(1,0.7,0);//inner color
+		  glVertex2f(0.0f+posX, 0.0f+posY);
+
+		  glColor3f(1,1,0);//outer color
+
+		  for(int i = 0; i < slices; i++)
+		  {
+				float angle = incr * i;
+
+				float x = (float) cos(angle) * radius;
+				float y = (float) sin(angle) * radius;
+
+				glVertex2f(x + posX, y + posY);
+		  }
+
+		  glVertex2f(radius+ posX, 0.0f + posY);
+
+	glEnd();
+
+/////////////////////////////////END OF DRAWING SUN
 //////////////////////////////// Pelangi merah - kuning
 
 	glBegin(GL_POLYGON);
