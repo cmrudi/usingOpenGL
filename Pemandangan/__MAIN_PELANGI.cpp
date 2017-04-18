@@ -139,9 +139,36 @@ void display(){
 
 ////////////////////////////////END OF SKY BOX
 ////////////////////////////////DRAWING MOUNTAIN
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.9,0.1);
+		glVertex2f(-1,-0.25);
+		glVertex2f(-0.9,-0.2);
+		glVertex2f(-0.8,-0.2);
+		glVertex2f(-0.7,-0.2);
+		glVertex2f(-0.6,-0.25);
+		glVertex2f(-0.5,-0.35);
+		glVertex2f(-0.4,-0.45);
+		glVertex2f(-0.3,-0.45);
+		glVertex2f(-0.2,-0.50);
+		glVertex2f(-0.1,-0.55);
+		glVertex2f(0,-1);
+		glVertex2f(-1,-1);
+	glEnd();
+	
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.9,0.1);
+		glVertex2f(0.5,-0.75);
+		glVertex2f(0.6,-0.65);
+		glVertex2f(0.7,-0.55);
+		glVertex2f(0.8,-0.45);
+		glVertex2f(0.9,-0.35);
+		glVertex2f(1,-0.30);
+		glVertex2f(1,-1);
+	glEnd();
+
 
 	glBegin(GL_POLYGON);            // These vertices form a closed polygon
-		glColor3f(0.0f, 1.0f, 0.0f); // Yellow
+		glColor3f(0.0f, 1.0f, 0.0f); // Green
 		glVertex2f(-1, -1);
 		glVertex2f(-0.9,-0.9);
 		glVertex2f(-0.8,-0.85);
