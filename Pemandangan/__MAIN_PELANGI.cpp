@@ -300,6 +300,82 @@ void display(){
 
 ////////////////////////////////END OF DRAWING MOUNTAIN
 
+
+///////////////////////////////SUNGAI
+  glBegin(GL_POLYGON);
+    glColor3f(0.3f, 0.3f, 1.0f); // Green
+    glVertex2f(0.75, -0.80);
+    glVertex2f(0.85, -0.80);
+
+    glColor3f(0.7f, 0.7f, 0.9f); // Green
+    glVertex2f(0.9, -1);
+    glVertex2f(0.85, -1);
+    
+  glEnd();
+
+
+  // glBegin(GL_POLYGON);
+  //   Point Byur[4];
+  //   Byur[0].setxy(0.8,-0.9);
+  //   Byur[1].setxy(0.9,-0.9);
+  //   Byur[2].setxy(0.8,-0.8);
+  //   Byur[3].setxy(0.9,-0.8);
+
+  //   executeCurve(Byur,'o','g');
+
+  //   glVertex2f(0.95, -1);
+  // glEnd();
+
+  glBegin(GL_POLYGON);
+  
+    glColor3f(0.3f, 0.3f, 1.0f); 
+    glVertex2f(0.75, -0.80);
+    glVertex2f(0.85, -0.80);
+
+    glColor3f(0.7f, 0.7f, 0.9f); 
+    glVertex2f(0.89, -0.90);
+
+    glVertex2f(0.9, -1);
+    glVertex2f(0.85, -1);
+    
+  glEnd();
+
+  glBegin(GL_POLYGON);
+  
+    glColor3f(0.0f, 1.0f, 0.0f); 
+    glVertex2f(0.75, -0.80);
+    glVertex2f(0.82, -0.90);
+    glVertex2f(0.85, -1);
+    
+  glEnd();
+
+
+///////////////////////////////BATU
+  glBegin(GL_POLYGON);
+    glColor3f(0.5f, 0.5f, 0.5f); 
+    glVertex2f(0.73, -0.82);
+    glVertex2f(0.75, -0.780);
+
+    glVertex2f(0.77, -0.78);
+    glVertex2f(0.78, -0.82);
+    
+  glEnd();
+
+
+  glBegin(GL_POLYGON);
+    glColor3f(0.5f, 0.5f, 0.5f); 
+    glVertex2f(0.83, -0.82);
+    glVertex2f(0.84, -0.790);
+
+    glVertex2f(0.88, -0.78);
+    glVertex2f(0.90, -0.82);
+    
+  glEnd();
+
+
+///////////////////////////////END OF MACEM-MACEM
+    
+
 	float x = 0.5;
 	float y = 0.5;
 
