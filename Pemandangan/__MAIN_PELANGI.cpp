@@ -350,6 +350,41 @@ void display(){
 /////////////////////////////////END OF DRAWING SUN
 
 
+	glColor3f(0.65, 0.15, 0.15);
+	gluOrtho2D(0,640,640,0);
+	glBegin(GL_POLYGON);
+		glVertex2f(480, 500);
+		glVertex2f(480, 640);
+		glColor3f(0.35, 0.15, 0.15);
+		glVertex2f(530, 640);
+		glVertex2f(530, 500);
+	glEnd();
+	glColor3f(0.0, 0.5, 0.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(400, 500);
+		glVertex2f(610, 500);
+		glColor3f(0.0, 0.9, 0.0);
+		glVertex2f(530, 450);
+		glVertex2f(480, 450);
+	glEnd();
+	glColor3f(0.0, 0.6, 0.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(430, 450);
+		glVertex2f(580, 450);
+		glColor3f(0.0, 0.9, 0.0);
+		glVertex2f(520, 400);
+		glVertex2f(490, 400);
+	glEnd();
+	glColor3f(0.0, 0.7, 0.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(460, 400);
+		glVertex2f(550, 400);
+		glColor3f(0.0, 0.9, 0.0);
+		glVertex2f(505, 350);
+		glVertex2f(505, 350);
+	glEnd();
+
+
 	glFlush();
 	glutSwapBuffers();
 }
