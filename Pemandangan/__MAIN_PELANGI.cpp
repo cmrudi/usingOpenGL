@@ -141,13 +141,28 @@ void display(){
 ////////////////////////////////DRAWING MOUNTAIN
 
 	glBegin(GL_POLYGON);            // These vertices form a closed polygon
-		glColor3f(1.0f, 1.0f, 0.0f); // Yellow
-		glVertex2f(0.4f, 0.2f);
-		glVertex2f(0.6f, 0.2f);
-		glVertex2f(0.7f, 0.4f);
-		glVertex2f(0.6f, 0.6f);
-		glVertex2f(0.4f, 0.6f);
-		glVertex2f(0.3f, 0.4f);
+		glColor3f(0.0f, 1.0f, 0.0f); // Yellow
+		glVertex2f(-1, -1);
+		glVertex2f(-0.9,-0.9);
+		glVertex2f(-0.8,-0.85);
+		glVertex2f(-0.7,-0.80);
+		glVertex2f(-0.6,-0.75);
+		glVertex2f(-0.5,-0.70);
+		glVertex2f(-0.4,-0.70);
+		glVertex2f(-0.3,-0.70);
+		glVertex2f(-0.2,-0.55);
+		glVertex2f(-0.1,-0.50);
+		glVertex2f(0, -0.50);
+		glVertex2f(0.1, -0.50);
+		glVertex2f(0.2, -0.50);
+		glVertex2f(0.3, -0.60);
+		glVertex2f(0.4, -0.75);
+		glVertex2f(0.5, -0.75);
+		glVertex2f(0.6, -0.75);
+		glVertex2f(0.7, -0.80);
+		glVertex2f(0.8, -0.80);
+		glVertex2f(0.9, -0.80);
+		glVertex2f(1, -1);
 	glEnd();
 
 ////////////////////////////////END OF DRAWING MOUNTAIN
