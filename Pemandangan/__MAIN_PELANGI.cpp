@@ -57,14 +57,17 @@ Point drawBezierGeneralized(Point PT[], double t) {
 //color: r for red, b for blue, w for white
 void verColor(char a) {
 	  if (a=='r') {
-		glColor3f(1.0f, 0.0f, 0.0f);  
+  		glColor3f(1.0f, 0.0f, 0.0f);  
 	  }
 	  else if (a=='b') {
-		glColor3f(0.0f, 0.0f, 1.0f);
+  		glColor3f(0.0f, 0.0f, 1.0f);
 	  }
 	  else if (a=='w') {
-		glColor3f(1.0f, 1.0f, 1.0f);
+  		glColor3f(1.0f, 1.0f, 1.0f);
 	  }
+    else if(a=='o') {
+      glColor3f(0.49f, 0.59f, 0.807f); 
+    }
 }
 
 
@@ -109,6 +112,101 @@ void executeCurve(Point P[], char color, char mode) {
   }
 }
 
+void drawRainbow() {
+
+  //////////////////////////////// Pelangi merah - kuning
+
+  glBegin(GL_POLYGON);
+    
+    /* 
+    abc[0] titik asal kiri
+    abc[1] titik control kiri atas
+    abc[2] titik control kanan atas
+    abc[3] titik asal kanan
+    */
+    Point abc[4];
+
+    abc[0].setxy(-1.000,-0.3500);
+    abc[1].setxy(-0.9000,-0.3000);
+    abc[2].setxy(-0.3000,-0.4000);
+    abc[3].setxy(-0.1000,-0.6000);
+
+
+    executeCurve(abc,'r','g');
+
+    // glColor3f(1.0f, 0.0f, 0.0f);
+    // glVertex2f(0.500,0.500);
+
+    glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(-0.1,-0.700);
+    glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(-1.0,-0.50);
+
+  glEnd();
+
+  //////////////////////////////// Pelangi kuning - hijau
+
+  glBegin(GL_POLYGON);
+    glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(-1.0,-0.50);
+    glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(-0.1,-0.700);
+    
+    glColor3f(0.0f, 0.7f, 0.0f);
+    glVertex2f(-0.100,-0.800);
+    glColor3f(0.0f, 0.7f, 0.0f);
+    glVertex2f(-1.0,-0.60);
+
+  glEnd();
+
+
+//////////////////////////////// Pelangi hijau - biru
+
+  glBegin(GL_POLYGON);
+
+    glColor3f(0.0f, 0.7f, 0.0f);
+    glVertex2f(-1.0,-0.60);
+
+    glColor3f(0.0f, 0.7f, 0.0f);
+    glVertex2f(-0.100,-0.800);
+    
+    // glColor3f(0.0f, 0.0f, 1.0f);
+    // glVertex2f(250,200);
+
+    // Point blue[4];
+    // blue[0].setxy(-1.0,-0.70);
+    // blue[1].setxy(-0.9,-0.6);
+    // blue[2].setxy(-0.5,-0.6);
+    // blue[3].setxy(-0.3500,-1.0);
+    // executeCurve(blue,'b','g');
+
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glVertex2f(-0.3500,-0.90);
+    
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glVertex2f(-1.00,-0.800);
+    
+
+    // glColor3f(0.0f, 0.0f, 1.0f);
+    // glVertex2f(350,200);
+    // glColor3f(0.0f, 1.0f, 0.0f);
+    // glVertex2f(400,300);
+  glEnd();
+
+
+  glBegin(GL_POLYGON);
+    Point blue[4];
+    blue[0].setxy(-1.00,-0.800);
+    blue[1].setxy(-0.9,-0.7);
+    blue[2].setxy(-0.4,-0.87);
+    blue[3].setxy(-0.3500,-0.90);
+
+    executeCurve(blue,'o','g');
+    verColor('o');
+    glVertex2f(-0.3500,-0.90);
+  glEnd();
+
+}
 
 void display(){
 	
@@ -138,7 +236,26 @@ void display(){
 	
 
 ////////////////////////////////END OF SKY BOX
+
+////////////////////////////////DRAWING RAINBOW
+  drawRainbow();
+////////////////////////////////END OF RAINBOW
+
 ////////////////////////////////DRAWING MOUNTAIN
+
+glBegin(GL_POLYGON);
+   glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(0.150,0.400);
+   glColor3f(1.0f, 1.0f, 0.0f);
+    glVertex2f(0.450,0.400);
+
+   glColor3f(0.0f, 1.0f, 0.0f);
+    glVertex2f(0.400,0.300);
+   glColor3f(0.0f, 1.0f, 0.0f);
+    glVertex2f(0.200,0.300);
+
+  glEnd();
+
 
 	glBegin(GL_POLYGON);            // These vertices form a closed polygon
 		glColor3f(0.0f, 1.0f, 0.0f); // Yellow
@@ -168,90 +285,8 @@ void display(){
 ////////////////////////////////END OF DRAWING MOUNTAIN
 
 
-//////////////////////////////// Pelangi merah - kuning
-
-	glBegin(GL_POLYGON);
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glVertex2f(100,500);
 
 
-		/* 
-		abc[0] titik asal kiri
-		abc[1] titik control kiri atas
-		abc[2] titik control kanan atas
-		abc[3] titik asal kanan
-		*/
-		Point abc[4];
-
-		abc[0].setxy(100.0,500.0);
-		abc[1].setxy(200.0,600.0);
-		abc[2].setxy(400.0,600.0);
-		abc[3].setxy(500.0,500.0);
-
-
-		executeCurve(abc,'r','g');
-
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glVertex2f(500,500);
-
-		glColor3f(1.0f, 1.0f, 0.0f);
-		glVertex2f(450,400);
-		glColor3f(1.0f, 1.0f, 0.0f);
-		glVertex2f(150,400);
-
-	glEnd();
-
-
-//////////////////////////////// Pelangi kuning - hijau
-
-	glBegin(GL_POLYGON);
-		glColor3f(1.0f, 1.0f, 0.0f);
-		glVertex2f(150,400);
-		glColor3f(1.0f, 1.0f, 0.0f);
-		glVertex2f(450,400);
-
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex2f(400,300);
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex2f(200,300);
-
-	glEnd();
-
-
-//////////////////////////////// Pelangi hijau - biru
-
-	glBegin(GL_POLYGON);
-
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex2f(200,300);
-
-		// glColor3f(0.0f, 0.0f, 1.0f);
-		// glVertex2f(250,200);
-
-		Point blue[4];
-		blue[0].setxy(250.0,200.0);
-		blue[1].setxy(290.0,240.0);
-		blue[2].setxy(310.0,240.0);
-		blue[3].setxy(350.0,200.0);
-
-		executeCurve(blue,'b','g');
-		// glColor3f(0.0f, 0.0f, 1.0f);
-		// glVertex2f(350,200);
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex2f(400,300);
-	glEnd();
-
-
-	// glBegin(GL_POLYGON);
-		// blue[0].setxy(250.0,200.0);
-		// blue[1].setxy(290.0,240.0);
-		// blue[2].setxy(310.0,240.0);
-		// blue[3].setxy(350.0,200.0);
-
-		// executeCurve(blue,'w','g');
-		// glColor3f(1.0f, 1.0f, 1.0f);
-		// glVertex2f(350,200);
-	// glEnd();
 
  
     
