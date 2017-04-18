@@ -137,7 +137,20 @@ void display(){
 	glEnd();
 	
 
-////////////////////////////////END OF SKY BOX 
+////////////////////////////////END OF SKY BOX
+////////////////////////////////DRAWING MOUNTAIN
+
+	glBegin(GL_POLYGON);            // These vertices form a closed polygon
+		glColor3f(1.0f, 1.0f, 0.0f); // Yellow
+		glVertex2f(0.4f, 0.2f);
+		glVertex2f(0.6f, 0.2f);
+		glVertex2f(0.7f, 0.4f);
+		glVertex2f(0.6f, 0.6f);
+		glVertex2f(0.4f, 0.6f);
+		glVertex2f(0.3f, 0.4f);
+	glEnd();
+
+////////////////////////////////END OF DRAWING MOUNTAIN
 
 
 //////////////////////////////// Pelangi merah - kuning
