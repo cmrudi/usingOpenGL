@@ -113,12 +113,18 @@ void display() {
       glVertex3f( xHalfDim, yHalfDim,  zHalfDim);
  
       // Bottom face (y = -1.0f)
-      glColor3f(191.0/255.0, 177.0/255.0, 131.0/255.0);
-      // glColor3f(0.0f, 1.0f, 0.0f);     // Green
+      glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
+
+      // Tambalan warna beda yang atas
+      glColor3f(239.0/255.0, 224.0/255.0, 184.0/255.0);
+      glVertex3f( xHalfDim, -yHalfDim-0.015,  zHalfDim-0.5);
+      glVertex3f(-xHalfDim, -yHalfDim-0.015,  zHalfDim-0.5);
+      glVertex3f(-xHalfDim, -yHalfDim-0.015, -zHalfDim+0.5);
+      glVertex3f( xHalfDim, -yHalfDim-0.015, -zHalfDim+0.5);
  
       // Front face  (z = 1.0f)
       glColor3f(0.9f, 0.5f, 0.5f);     // Orange
