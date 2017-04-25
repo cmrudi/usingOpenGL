@@ -4,12 +4,30 @@
 //#include <windows.h>  // for MS Windows
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
+#include <math.h>
+
+#define PI 3.14159265
+
  
 /* Global variables */
 char title[] = "3D Shapes with animation";
 GLfloat anglePyramid = 0.0f;  // Rotational angle for pyramid [NEW]
 GLfloat angleCube = 0.0f;     // Rotational angle for cube [NEW]
 int refreshMills = 15;        // refresh interval in milliseconds [NEW]
+
+
+float xRel = 3.55f;
+float yRel = 0.4f;
+float zRel = 7.1f;
+
+
+
+
+float scale = 4.0;
+float xHalfDim = 0.8875f;
+float yHalfDim = 0.1f;
+float zHalfDim = 1.775f;
+
  
 /* Initialize OpenGL Graphics */
 void initGL() {
@@ -20,16 +38,65 @@ void initGL() {
    glShadeModel(GL_SMOOTH);   // Enable smooth shading
    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);  // Nice perspective corrections
 }
- 
+
+void setColor(char a) {
+     if (a=='r') {
+      glColor3f(1.0f, 0.0f, 0.0f);  
+     }
+     else if (a=='b') {
+      glColor3f(0.0f, 0.0f, 1.0f);
+     }
+     else if (a=='w') {
+      glColor3f(1.0f, 1.0f, 1.0f);
+     }
+     else if (a=='h') {
+      glColor3f(0.0f, 0.0f, 0.0f);
+     }
+    else if(a=='o') {
+      glColor3f(0.5f, 0.5f, 6.0f); 
+    }
+    else if (a=='c') {
+      glColor3f(0.4,0.2,0);
+     }
+     else if (a=='y') {
+      glColor3f(1.0,1.0,0);
+     }
+}
+
+void drawCamera(float posX, float posY, float radius, char inCol, char outCol) {
+
+   int slices = 50;
+   float incr = (float) (2 * PI / slices);
+    
+   glBegin(GL_TRIANGLE_FAN);
+
+        setColor(inCol);//inner color
+        glVertex3f(0.0f+posX,-yHalfDim-0.01f, 0.0f+posY);
+
+        setColor(outCol);//outer color
+
+        for(int i = 0; i < slices; i++)
+        {
+            float angle = incr * i;
+
+            float x = (float) cos(angle) * radius;
+            float y = (float) sin(angle) * radius;
+
+            glVertex3f(x + posX,-yHalfDim-0.01f, y + posY);
+        }
+
+        glVertex3f(radius+ posX,-yHalfDim-0.01f, 0.0f + posY);
+
+   glEnd();
+}
+
 /* Handler for window-repaint event. Called back when the window first appears and
    whenever the window needs to be re-painted. */
 void display() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
    
-   float xHalfDim = 0.8875f;
-   float yHalfDim = 0.1f;
-   float zHalfDim = 1.775f;
+   
 
    // Render a color-cube consisting of 6 quads with different colors
    glLoadIdentity();                 // Reset the model-view matrix
@@ -46,7 +113,8 @@ void display() {
       glVertex3f( xHalfDim, yHalfDim,  zHalfDim);
  
       // Bottom face (y = -1.0f)
-      glColor3f(0.0f, 1.0f, 0.0f);     // Green
+      glColor3f(191.0/255.0, 177.0/255.0, 131.0/255.0);
+      // glColor3f(0.0f, 1.0f, 0.0f);     // Green
       glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
@@ -81,7 +149,9 @@ void display() {
       glVertex3f(xHalfDim, -yHalfDim, -zHalfDim);
    glEnd();  // End of drawing color-cube
  
-  
+   drawCamera(-0.6,1.5,0.15,'c','h');
+
+   drawCamera(-0.3,1.5,0.05,'y','w');
  
    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
  
