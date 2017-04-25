@@ -26,7 +26,11 @@ void initGL() {
 void display() {
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
    glMatrixMode(GL_MODELVIEW);     // To operate on model-view matrix
- 
+   
+   float xHalfDim = 0.8875f;
+   float yHalfDim = 0.1f;
+   float zHalfDim = 1.775f;
+
    // Render a color-cube consisting of 6 quads with different colors
    glLoadIdentity();                 // Reset the model-view matrix
    glTranslatef(1.5f, 0.0f, -7.0f);  // Move right and into the screen
@@ -36,45 +40,45 @@ void display() {
       // Top face (y = 1.0f)
       // Define vertices in counter-clockwise (CCW) order with normal pointing out
       glColor3f(0.0f, 1.0f, 0.0f);     // Green
-      glVertex3f( 1.0f, 1.0f, -1.0f);
-      glVertex3f(-1.0f, 1.0f, -1.0f);
-      glVertex3f(-1.0f, 1.0f,  1.0f);
-      glVertex3f( 1.0f, 1.0f,  1.0f);
+      glVertex3f( xHalfDim, yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim, yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim, yHalfDim,  zHalfDim);
+      glVertex3f( xHalfDim, yHalfDim,  zHalfDim);
  
       // Bottom face (y = -1.0f)
-      glColor3f(1.0f, 0.5f, 0.0f);     // Orange
-      glVertex3f( 1.0f, -1.0f,  1.0f);
-      glVertex3f(-1.0f, -1.0f,  1.0f);
-      glVertex3f(-1.0f, -1.0f, -1.0f);
-      glVertex3f( 1.0f, -1.0f, -1.0f);
+      glColor3f(0.0f, 0.5f, 0.0f);     // Half Green
+      glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
+      glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
  
       // Front face  (z = 1.0f)
-      glColor3f(1.0f, 0.0f, 0.0f);     // Red
-      glVertex3f( 1.0f,  1.0f, 1.0f);
-      glVertex3f(-1.0f,  1.0f, 1.0f);
-      glVertex3f(-1.0f, -1.0f, 1.0f);
-      glVertex3f( 1.0f, -1.0f, 1.0f);
+      glColor3f(0.5f, 0.0f, 0.0f);     // Orange
+      glVertex3f( xHalfDim,  yHalfDim, zHalfDim);
+      glVertex3f(-xHalfDim,  yHalfDim, zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim, zHalfDim);
+      glVertex3f( xHalfDim, -yHalfDim, zHalfDim);
  
       // Back face (z = -1.0f)
       glColor3f(1.0f, 1.0f, 0.0f);     // Yellow
-      glVertex3f( 1.0f, -1.0f, -1.0f);
-      glVertex3f(-1.0f, -1.0f, -1.0f);
-      glVertex3f(-1.0f,  1.0f, -1.0f);
-      glVertex3f( 1.0f,  1.0f, -1.0f);
+      glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
+      glVertex3f( xHalfDim,  yHalfDim, -zHalfDim);
  
       // Left face (x = -1.0f)
-      glColor3f(0.0f, 0.0f, 1.0f);     // Blue
-      glVertex3f(-1.0f,  1.0f,  1.0f);
-      glVertex3f(-1.0f,  1.0f, -1.0f);
-      glVertex3f(-1.0f, -1.0f, -1.0f);
-      glVertex3f(-1.0f, -1.0f,  1.0f);
+      glColor3f(0.0f, 0.0f, 0.5f);     // Blue
+      glVertex3f(-xHalfDim,  yHalfDim,  zHalfDim);
+      glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
+      glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
  
       // Right face (x = 1.0f)
-      glColor3f(1.0f, 0.0f, 1.0f);     // Magenta
-      glVertex3f(1.0f,  1.0f, -1.0f);
-      glVertex3f(1.0f,  1.0f,  1.0f);
-      glVertex3f(1.0f, -1.0f,  1.0f);
-      glVertex3f(1.0f, -1.0f, -1.0f);
+      glColor3f(0.0f, 0.0f, 1.0f);     // Half Blue
+      glVertex3f(xHalfDim,  yHalfDim, -zHalfDim);
+      glVertex3f(xHalfDim,  yHalfDim,  zHalfDim);
+      glVertex3f(xHalfDim, -yHalfDim,  zHalfDim);
+      glVertex3f(xHalfDim, -yHalfDim, -zHalfDim);
    glEnd();  // End of drawing color-cube
  
   
