@@ -39,35 +39,35 @@ void display() {
    glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
       // Top face (y = 1.0f)
       // Define vertices in counter-clockwise (CCW) order with normal pointing out
-      glColor3f(0.0f, 1.0f, 0.0f);     // Green
+      glColor3f(0.5f, 0.9f, 0.5f);     // Half Green
       glVertex3f( xHalfDim, yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, yHalfDim,  zHalfDim);
       glVertex3f( xHalfDim, yHalfDim,  zHalfDim);
  
       // Bottom face (y = -1.0f)
-      glColor3f(0.0f, 0.5f, 0.0f);     // Half Green
+      glColor3f(0.0f, 1.0f, 0.0f);     // Green
       glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
  
       // Front face  (z = 1.0f)
-      glColor3f(0.5f, 0.0f, 0.0f);     // Orange
+      glColor3f(0.9f, 0.5f, 0.5f);     // Orange
       glVertex3f( xHalfDim,  yHalfDim, zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, zHalfDim);
       glVertex3f( xHalfDim, -yHalfDim, zHalfDim);
  
       // Back face (z = -1.0f)
-      glColor3f(1.0f, 1.0f, 0.0f);     // Yellow
+      glColor3f(1.0f, 0.0f, 0.0f);     // Yellow
       glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
       glVertex3f( xHalfDim,  yHalfDim, -zHalfDim);
  
       // Left face (x = -1.0f)
-      glColor3f(0.0f, 0.0f, 0.5f);     // Blue
+      glColor3f(0.5f, 0.5f, 0.9f);     // Blue
       glVertex3f(-xHalfDim,  yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
