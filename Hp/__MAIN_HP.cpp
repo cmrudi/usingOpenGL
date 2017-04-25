@@ -90,6 +90,33 @@ void drawCamera(float posX, float posY, float radius, char inCol, char outCol) {
    glEnd();
 }
 
+void drawFrontCamera(float posX, float posY, float radius, char inCol, char outCol) {
+
+   int slices = 50;
+   float incr = (float) (2 * PI / slices);
+    
+   glBegin(GL_TRIANGLE_FAN);
+
+        setColor(inCol);//inner color
+        glVertex3f(0.0f+posX,yHalfDim+0.01f, 0.0f+posY);
+
+        setColor(outCol);//outer color
+
+        for(int i = 0; i < slices; i++)
+        {
+            float angle = incr * i;
+
+            float x = (float) cos(angle) * radius;
+            float y = (float) sin(angle) * radius;
+
+            glVertex3f(x + posX,yHalfDim+0.01f, y + posY);
+        }
+
+        glVertex3f(radius+ posX,yHalfDim+0.01f, 0.0f + posY);
+
+   glEnd();
+}
+
 /* Handler for window-repaint event. Called back when the window first appears and
    whenever the window needs to be re-painted. */
 void display() {
@@ -118,6 +145,8 @@ void display() {
       glVertex3f(-xHalfDim+0.07, yHalfDim+0.01, -zHalfDim+0.5);
       glVertex3f(-xHalfDim+0.07, yHalfDim+0.01,  zHalfDim-0.4);
       glVertex3f( xHalfDim-0.07, yHalfDim+0.01,  zHalfDim-0.4);
+      
+      
       
       
  	
@@ -197,8 +226,30 @@ void display() {
    	  glVertex3f( xHalfDim-xTriangleStart, yHalfDim, -zHalfDim+0.2);  
    glEnd();
    
+   //Front Camera
+   drawFrontCamera(0.3,1.6,0.05,'c','h');
+   
+   //Proximity Sensor
+   drawFrontCamera(-0.35,1.6,0.05,'c','h');
+   drawFrontCamera(-0.38,1.6,0.05,'c','h');
+   drawFrontCamera(-0.41,1.6,0.05,'c','h');
+   
+   //Front Speaker
+   drawFrontCamera(0.1,1.6,0.05,'g','w');
+   drawFrontCamera(0.07,1.6,0.05,'g','w');
+   drawFrontCamera(0.04,1.6,0.05,'g','w');
+   drawFrontCamera(0.01,1.6,0.05,'g','w');
+   drawFrontCamera(-0.02,1.6,0.05,'g','w');
+   drawFrontCamera(-0.05,1.6,0.05,'g','w');
+   drawFrontCamera(-0.08,1.6,0.05,'g','w');
+   drawFrontCamera(-0.11,1.6,0.05,'g','w');
+   drawFrontCamera(-0.14,1.6,0.05,'g','w');
+   drawFrontCamera(-0.17,1.6,0.05,'g','w');
+   drawFrontCamera(-0.21,1.6,0.05,'g','w');
+   
+   //Rear Camera
    drawCamera(-0.6,1.5,0.15,'c','h');
-
+   //Flash for Rear Camera
    drawCamera(-0.3,1.5,0.05,'y','w');
  
    glutSwapBuffers();  // Swap the front and back frame buffers (double buffering)
