@@ -106,12 +106,21 @@ void display() {
    glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
       // Top face (y = 1.0f)
       // Define vertices in counter-clockwise (CCW) order with normal pointing out
-      glColor3f(0.5f, 0.9f, 0.5f);     // Half Green
+      glColor3f(239.0/255.0, 224.0/255.0, 184.0/255.0); // Soft Gold || FRONT FACE
       glVertex3f( xHalfDim, yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, yHalfDim,  zHalfDim);
       glVertex3f( xHalfDim, yHalfDim,  zHalfDim);
- 
+      
+	  // Tambalan warna beda yang atas    //Black || SCREEN on FRONT FACE
+      glColor3f(0,0,0);
+      glVertex3f( xHalfDim-0.07, yHalfDim+0.01, -zHalfDim+0.5);
+      glVertex3f(-xHalfDim+0.07, yHalfDim+0.01, -zHalfDim+0.5);
+      glVertex3f(-xHalfDim+0.07, yHalfDim+0.01,  zHalfDim-0.4);
+      glVertex3f( xHalfDim-0.07, yHalfDim+0.01,  zHalfDim-0.4);
+      
+      
+ 	
       // Bottom face (y = -1.0f)
       glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
@@ -154,7 +163,40 @@ void display() {
       glVertex3f(xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(xHalfDim, -yHalfDim, -zHalfDim);
    glEnd();  // End of drawing color-cube
- 
+   
+   // Button Menu Box
+   glBegin(GL_LINE_STRIP);
+   	  float xBoxStart = 0.45;
+   	  glColor3f(0,0,0);
+   	  glVertex3f( xHalfDim-xBoxStart, yHalfDim, -zHalfDim+0.2);
+   	  glVertex3f( xHalfDim-xBoxStart-0.15, yHalfDim, -zHalfDim+0.2);
+   	  glVertex3f( xHalfDim-xBoxStart-0.15, yHalfDim, -zHalfDim+0.35);
+   	  glVertex3f( xHalfDim-xBoxStart, yHalfDim, -zHalfDim+0.35);
+   	  glVertex3f( xHalfDim-xBoxStart, yHalfDim, -zHalfDim+0.2);  
+   glEnd();
+   
+   //Button Menu Pentagon
+   glBegin(GL_LINE_STRIP);
+   	  float xPentagonStart = 0.85;
+   	  glColor3f(0,0,0);
+   	  glVertex3f( xHalfDim-xPentagonStart, yHalfDim, -zHalfDim+0.2);
+   	  glVertex3f( xHalfDim-xPentagonStart-0.15, yHalfDim, -zHalfDim+0.2);
+   	  glVertex3f( xHalfDim-xPentagonStart-0.15, yHalfDim, -zHalfDim+0.28);
+   	  glVertex3f( xHalfDim-xPentagonStart-0.075, yHalfDim, -zHalfDim+0.35);
+   	  glVertex3f( xHalfDim-xPentagonStart, yHalfDim, -zHalfDim+0.28);
+   	  glVertex3f( xHalfDim-xPentagonStart, yHalfDim, -zHalfDim+0.2);
+   glEnd();
+   
+   //Button Menu Triangle
+   glBegin(GL_LINE_STRIP);
+   	  float xTriangleStart = 1.25;
+   	  glColor3f(0,0,0);
+   	  glVertex3f( xHalfDim-xTriangleStart, yHalfDim, -zHalfDim+0.2);
+   	  glVertex3f( xHalfDim-xTriangleStart-0.15, yHalfDim, -zHalfDim+0.275);
+   	  glVertex3f( xHalfDim-xTriangleStart, yHalfDim, -zHalfDim+0.35);
+   	  glVertex3f( xHalfDim-xTriangleStart, yHalfDim, -zHalfDim+0.2);  
+   glEnd();
+   
    drawCamera(-0.6,1.5,0.15,'c','h');
 
    drawCamera(-0.3,1.5,0.05,'y','w');
