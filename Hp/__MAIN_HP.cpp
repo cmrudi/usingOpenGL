@@ -90,6 +90,33 @@ void drawCamera(float posX, float posY, float radius, char inCol, char outCol) {
    glEnd();
 }
 
+void drawHeadset(float posX, float posY, float radius, char inCol, char outCol) {
+
+   int slices = 50;
+   float incr = (float) (2 * PI / slices);
+    
+   glBegin(GL_TRIANGLE_FAN);
+
+        setColor(inCol);//inner color
+        glVertex3f(0.0f+posX,0.0f-posY, zHalfDim+0.01f);
+
+        setColor(outCol);//outer color
+
+        for(int i = 0; i < slices; i++)
+        {
+            float angle = incr * i;
+
+            float x = (float) cos(angle) * radius;
+            float y = (float) sin(angle) * radius;
+
+            glVertex3f(x + posX,y-posY, zHalfDim+0.01f);
+        }
+
+        glVertex3f(radius+ posX,0.0f-posY, zHalfDim+0.01f);
+
+   glEnd();
+}
+
 /* Handler for window-repaint event. Called back when the window first appears and
    whenever the window needs to be re-painted. */
 void display() {
@@ -119,8 +146,6 @@ void display() {
       glVertex3f(-xHalfDim+0.07, yHalfDim+0.01,  zHalfDim-0.4);
       glVertex3f( xHalfDim-0.07, yHalfDim+0.01,  zHalfDim-0.4);
       
-      
- 	
       // Bottom face (y = -1.0f)
       glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f( xHalfDim, -yHalfDim,  zHalfDim);
@@ -136,33 +161,63 @@ void display() {
       glVertex3f( xHalfDim, -yHalfDim-0.015, -zHalfDim+0.5);
  
       // Front face  (z = 1.0f)
-      glColor3f(0.9f, 0.5f, 0.5f);     // Orange
+      glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f( xHalfDim,  yHalfDim, zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, zHalfDim);
       glVertex3f( xHalfDim, -yHalfDim, zHalfDim);
  
       // Back face (z = -1.0f)
-      glColor3f(1.0f, 0.0f, 0.0f);     // Yellow
+      glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f( xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
       glVertex3f( xHalfDim,  yHalfDim, -zHalfDim);
  
       // Left face (x = -1.0f)
-      glColor3f(0.5f, 0.5f, 0.9f);     // Blue
+      glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f(-xHalfDim,  yHalfDim,  zHalfDim);
       glVertex3f(-xHalfDim,  yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim, -zHalfDim);
       glVertex3f(-xHalfDim, -yHalfDim,  zHalfDim);
  
       // Right face (x = 1.0f)
-      glColor3f(0.0f, 0.0f, 1.0f);     // Half Blue
+      glColor3f(196.0/255.0, 180.0/255.0, 139.0/255.0);
       glVertex3f(xHalfDim,  yHalfDim, -zHalfDim);
       glVertex3f(xHalfDim,  yHalfDim,  zHalfDim);
       glVertex3f(xHalfDim, -yHalfDim,  zHalfDim);
       glVertex3f(xHalfDim, -yHalfDim, -zHalfDim);
+      
+      // Tombol atas
+      glColor3f(239.0/255.0, 224.0/255.0, 184.0/255.0);
+      glVertex3f(xHalfDim+0.01,  yHalfDim-0.07, -zHalfDim+2.5);
+      glVertex3f(xHalfDim+0.01,  yHalfDim-0.07,  zHalfDim-0.5);
+      glVertex3f(xHalfDim+0.01, -yHalfDim+0.07,  zHalfDim-0.5);
+      glVertex3f(xHalfDim+0.01, -yHalfDim+0.07, -zHalfDim+2.5);
+      
+      // Tombol bawah
+      glColor3f(239.0/255.0, 224.0/255.0, 184.0/255.0);
+      glVertex3f(xHalfDim+0.01,  yHalfDim-0.07, -zHalfDim+1.8);
+      glVertex3f(xHalfDim+0.01,  yHalfDim-0.07,  zHalfDim-1.4);
+      glVertex3f(xHalfDim+0.01, -yHalfDim+0.07,  zHalfDim-1.4);
+      glVertex3f(xHalfDim+0.01, -yHalfDim+0.07, -zHalfDim+1.8);
+      
+      // charger smartphone
+      glColor3f(0.0f, 0.0f, 0.0f);     // Black
+      glVertex3f( xHalfDim-0.8,  yHalfDim-0.09, zHalfDim+0.01);
+      glVertex3f(-xHalfDim+0.8,  yHalfDim-0.09, zHalfDim+0.01);
+      glVertex3f(-xHalfDim+0.8, -yHalfDim+0.05, zHalfDim+0.01);
+      glVertex3f( xHalfDim-0.8, -yHalfDim+0.05, zHalfDim+0.01);
+      
+      // headset
+      //glColor3f(0.0f, 0.0f, 0.0f);     // Black
+      //glVertex3f( xHalfDim-0.8,  yHalfDim-0.09, zHalfDim+0.01);
+      //glVertex3f(-xHalfDim+0.8,  yHalfDim-0.09, zHalfDim+0.01);
+      //glVertex3f(-xHalfDim+0.8, -yHalfDim+0.05, zHalfDim+0.01);
+      //glVertex3f( xHalfDim-0.8, -yHalfDim+0.05, zHalfDim+0.01);
    glEnd();  // End of drawing color-cube
+   
+   drawHeadset(0.6, 0.03, 0.05, 'h', 'h');
    
    // Button Menu Box
    glBegin(GL_LINE_STRIP);
